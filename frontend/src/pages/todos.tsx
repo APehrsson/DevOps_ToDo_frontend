@@ -4,6 +4,7 @@ import AddTodo from '../components/AddTodo'
 import { getTodos, addTodo, updateTodo, deleteTodo } from '../API'
 import { useNavigate } from 'react-router-dom'
 
+// see the status
 const sortTodos = (todos: ITodo[]): ITodo[] => {
     todos.sort((a, b) => {
         if (a.status && !b.status) {
@@ -16,6 +17,7 @@ const sortTodos = (todos: ITodo[]): ITodo[] => {
     })
     return todos
 }
+
 
 const TodosPage: React.FC = () => {
     const [todos, setTodos] = useState<ITodo[]>([])
