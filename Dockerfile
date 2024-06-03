@@ -1,6 +1,20 @@
+# Base image
 FROM node:slim
+
+# Set working directory
 WORKDIR /usr/src/app
-COPY . .
+
+# Install dependencies
+COPY package*.json ./
 RUN npm install
+RUN npm install -g typescript
+
+# Copy source code
+COPY . .
+
+# Build the project
+RUN npm run build
+
+# Expose port and start the application
 EXPOSE 3000
-CMD ["sh", "-c", "npm run build && npm start"]
+CMD ["npm", "start"]
