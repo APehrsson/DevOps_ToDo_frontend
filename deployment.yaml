@@ -1,21 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-deployment
+  name: todo-frontend-deployment
   labels:
-    app: frontend
+    app: todo-frontend
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: frontend
+      app: todo-frontend
   template:
     metadata:
       labels:
-        app: frontend
+        app: todo-frontend
     spec:
       containers:
-      - name: frontend
-        image: your-docker-repo/frontend:latest  # Replace with your Docker image
+      - name: todo-frontend
+        image: your-dockerhub-username/todo-frontend:latest
         ports:
         - containerPort: 3000
+
